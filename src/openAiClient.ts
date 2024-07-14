@@ -1,10 +1,6 @@
-import {
-  ChatCompletionRequestMessage,
-  ChatCompletionRequestMessageRoleEnum,
-  Configuration,
-  OpenAIApi
-} from 'openai'
+import { Configuration, OpenAIApi } from 'openai'
 import { getApiKey, getPromptOptions } from './config.js'
+import { Message } from './types.js'
 
 const trackConversation: Message[] = []
 
@@ -37,14 +33,4 @@ export class ChatGPTClient {
       throw e
     }
   }
-}
-
-class Message implements ChatCompletionRequestMessage {
-  constructor(content: string, role: ChatCompletionRequestMessageRoleEnum) {
-    this.content = content
-    this.role = role
-  }
-
-  content?: string | undefined
-  role: ChatCompletionRequestMessageRoleEnum
 }
