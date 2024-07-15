@@ -32,17 +32,14 @@ export async function getApiKey(clean?: boolean): Promise<string> {
 }
 
 export async function getPromptOptions(): Promise<{
-  model: string
   temperature: number
   maxTokens: number
 }> {
-  // const model = getConfig<string>("model");
-  const model = 'gpt-4o'
+  // const model = getConfig<string>("model"); // TODO: add model selection
   const temperature = getConfig<number>('temperature')
   const maxTokens = getConfig<number>('maxTokens')
 
   return {
-    model,
     temperature,
     maxTokens
   }

@@ -6,11 +6,12 @@ const trackConversation: Message[] = []
 
 export class ChatGPTClient {
   async getAnswer(question: string): Promise<string> {
-    const { model, maxTokens, temperature } = await getPromptOptions()
+    const { maxTokens, temperature } = await getPromptOptions()
     const configuration = new Configuration({
       apiKey: await getApiKey()
     })
     const openai = new OpenAIApi(configuration)
+    const model = 'gpt-4o'
 
     try {
       trackConversation.push(new Message(question, 'user'))
