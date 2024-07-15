@@ -1,10 +1,14 @@
-compile-mac:
+compile-mac-m1:
   @echo "Running bun compiler for mac..."
   bun build --compile --target=bun-darwin-arm64 ./src/index.ts --outfile myapp
 
 compile-linux:
   @echo "Running bun compiler for linux..."
   bun build --compile --target=bun-linux-x64 ./src/index.ts --outfile myapp
+
+compile-mac-intel:
+  @echo "Running bun compiler for linux..."
+  bun build --compile --target=bun-darwin-x64 ./src/index.ts --outfile myapp
 
 inject:
   @echo "Injecting sea-config.json..."
